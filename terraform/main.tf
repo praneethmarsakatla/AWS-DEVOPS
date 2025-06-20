@@ -4,12 +4,18 @@ provider "aws" {
 
 # S3 Bucket for Static Website
 resource "aws_s3_bucket" "static_site" {
-  bucket = "my-static-site-bucket-12345"
-  acl    = "public-read"
+  bucket = "praneeth-static-bucket-v1"
+}
 
-  website {
-    index_document = "index.html"
-    error_document = "error.html"
+resource "aws_s3_bucket_website_configuration" "static_site" {
+  bucket = aws_s3_bucket.static_site.id
+
+  index_document {
+    suffix = "index.html"
+  }
+
+  error_document {
+    key = "error.html"
   }
 }
 
