@@ -7,6 +7,17 @@ resource "aws_s3_bucket" "static_site" {
   bucket = "praneeth-static-bucket-v1"
 }
 
+# Disable Block Public Access Settings
+resource "aws_s3_bucket_public_access_block" "static_site" {
+  bucket = aws_s3_bucket.static_site.id
+
+  block_public_acls       = false
+  block_public_policy     = false
+  ignore_public_acls      = false
+  restrict_public_buckets = false
+}
+
+# S3 Website Configuration
 resource "aws_s3_bucket_website_configuration" "static_site" {
   bucket = aws_s3_bucket.static_site.id
 
