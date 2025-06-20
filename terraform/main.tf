@@ -2,24 +2,13 @@ provider "aws" {
   region = "us-east-1"
 }
 
-# S3 Bucket for Static Website
+
 resource "aws_s3_bucket" "static_site" {
-  bucket = "praneeth-static-bucket-v1"
+  bucket = "2398060-rugved"  # Replace with your desired S3 bucket name
 }
 
-# Disable Block Public Access Settings
-resource "aws_s3_bucket_public_access_block" "static_site" {
-  bucket = aws_s3_bucket.static_site.id
-
-  block_public_acls       = false
-  block_public_policy     = false
-  ignore_public_acls      = false
-  restrict_public_buckets = false
-}
-
-# S3 Website Configuration
 resource "aws_s3_bucket_website_configuration" "static_site" {
-  bucket = aws_s3_bucket.static_site.id
+  bucket = aws_s3_bucket.static_site.bucket
 
   index_document {
     suffix = "index.html"
@@ -29,21 +18,17 @@ resource "aws_s3_bucket_website_configuration" "static_site" {
     key = "error.html"
   }
 }
+# S3 Bucket for Static Website
+
+
+# Disable Block Public Access Settings
+
+
+# S3 Website Configuration
+
 
 # S3 Bucket Policy for Public Access
-resource "aws_s3_bucket_policy" "static_site_policy" {
-  bucket = aws_s3_bucket.static_site.id
 
-  policy = jsonencode({
-    Version = "2012-10-17",
-    Statement = [{
-      Effect = "Allow",
-      Principal = "*",
-      Action = "s3:GetObject",
-      Resource = "${aws_s3_bucket.static_site.arn}/*"
-    }]
-  })
-}
 
 # IAM Role for CodePipeline
 resource "aws_iam_role" "codepipeline_role" {
