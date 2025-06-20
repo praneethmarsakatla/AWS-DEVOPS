@@ -1,0 +1,10 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 14
+  build:
+    commands:
+      - echo "Deploying to S3..."
+      - aws s3 sync website/ s3://my-static-site-bucket-unique123 --delete
