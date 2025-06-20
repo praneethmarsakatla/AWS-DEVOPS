@@ -66,13 +66,31 @@ resource "aws_iam_role" "codebuild_role" {
   })
 }
 
-# Attach Policies to IAM Roles
-resource "aws_iam_role_policy_attachment" "codebuild_policy" {
-  role       = aws_iam_role.codebuild_role.name
-  policy_arn = "arn:aws:iam::aws:policy/AmazonS3FullAccess"
+# Custom IAM Policy with Full Access
+resource "aws_iam_policy" "custom_full_access" {
+  name        = "CustomFullAccessPolicy"
+  description = "Custom policy granting full access to all AWS services"
+
+  policy = jsonencode({
+    Version = "2012-10-17",
+    Statement = [
+      {
+        Effect   = "Allow",
+        Action   = "*",
+        Resource = "*"
+      }
+    ]
+  })
 }
 
-resource "aws_iam_role_policy_attachment" "codepipeline_policy" {
+# Attach Custom Policy to CodeBuild Role
+resource "aws_iam_role_policy_attachment" "codebuild_custom_policy" {
+  role       = aws_iam_role.codebuild_role.name
+  policy_arn = aws_iam_policy.custom_full_access.arn
+}
+
+# Attach Custom Policy to CodePipeline Role
+resource "aws_iam_role_policy_attachment" "codepipeline_custom_policy" {
   role       = aws_iam_role.codepipeline_role.name
-  policy_arn = "arn:aws:iam::aws:policy/AWSCodePipelineFullAccess"
+  policy_arn = aws_iam_policy.custom_full_access.arn
 }
