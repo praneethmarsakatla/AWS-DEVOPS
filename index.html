@@ -1,81 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Terraform Script - Bluish Theme</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blurple Anime Zone</title>
   <style>
     body {
-      background-color: #0f172a;
-      color: #e2e8f0;
-      font-family: 'Courier New', Courier, monospace;
-      padding: 20px;
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #3a0ca3, #4361ee);
+      color: #f0f0f0;
     }
-    pre {
-      background-color: #1e293b;
-      border: 1px solid #334155;
-      padding: 20px;
-      border-radius: 8px;
-      overflow-x: auto;
+
+    header {
+      background: linear-gradient(to right, #7209b7, #560bad);
+      color: white;
+      padding: 50px 20px;
+      text-align: center;
     }
-    .keyword { color: #60a5fa; font-weight: bold; }
-    .string { color: #38bdf8; }
-    .property { color: #93c5fd; }
-    .comment { color: #64748b; font-style: italic; }
+
+    header h1 {
+      font-size: 3em;
+      margin: 0;
+    }
+
+    nav {
+      background-color: #4cc9f0;
+      padding: 15px;
+      text-align: center;
+    }
+
+    nav a {
+      margin: 0 20px;
+      text-decoration: none;
+      color: #03045e;
+      font-weight: bold;
+     : color 0.3s;
+    }
+
+    nav a:hover {
+      color: #f72585;
+    }
+
+    .section {
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .section h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: #f72585;
+    }
+
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .anime-card {
+      background: #3f37c9;
+      border-radius: 10px;
+      overflow: hidden;
+      width: 300px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transition: transform 0.3s;
+    }
+
+    .anime-card:hover {
+      transform: scale(1.05);
+    }
+
+    .anime-card img {
+      width: 100%;
+      height: auto;
+    }
+
+    .anime-card .info {
+      padding: 15px;
+    }
+
+    .anime-card .info h3 {
+      margin: 0 0 10px;
+      color: #4cc9f0;
+    }
+
+    .anime-card .info p {
+      font-size: 0.95em;
+      color: #e0e0e0;
+    }
+
+    footer {
+      background-color: #03045e;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .card-container {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
   </style>
 </head>
 <body>
-  <h2>Terraform Script - Static Website Deployment</h2>
-  <pre>
-<span class="keyword">provider</span> <span class="string">"aws"</span> {
-  <span class="property">region</span> = <span class="string">"us-east-2"</span>
-}
+  <header>
+    <h1>Blurple Anime Zone</h1>
+    <p>Step into a world of vibrant anime adventures</p>
+  </header>
 
-<span class="keyword">resource</span> <span class="string">"aws_s3_bucket"</span> <span class="string">"static_website_bucket"</span> {
-  <span class="property">bucket</span> = <span class="string">"bucket-praneeth-static"</span>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Characters</a>
+    <a href="#">Series</a>
+    <a href="#">Contact</a>
+  </nav>
 
-  <span class="keyword">website</span> {
-    <span class="property">index_document</span> = <span class="string">"index.html"</span>
-  }
+  <div class="section">
+    <h2>Featured Characters</h2>
+    <div class="card-container">
+      <div class="anime-card">
+        <img src="https://cdn.pixabay.com/photo/2021/01/15/10/47/anime-5919017_1280.jpg" alt="Character 1">
+        <div class="info">
+          <h3>Heroic Warrior</h3>
+          <p>A brave anime character ready to fight for justice and protect the innocent.</p>
+        </div>
+      </div>
+      <div class="anime-card">
+        <img src="https://cdn.pixabay.com/photo/2020/12/10/12/36/anime-5819675_1280.jpg" alt="Character 2">
+        <div class="info">
+          <h3>Mystic Mage</h3>
+          <p>A mysterious mage with magical powers and a hidden past full of secrets.</p>
+        </div>
+      </div>
+      <div class="anime-card">
+        <img src="https://cdn.pixabay.com/photo/2021/03/04/08/58/anime-6066636_1280.jpg" alt="Character 3">
+        <div class="info">
+          <h3>Cyber Ninja</h3>
+          <p>A futuristic ninja with cybernetic enhancements and stealth skills.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <span class="property">tags</span> = {
-    <span class="property">Project</span>     = <span class="string">"StaticWebsiteDeployment"</span>
-    <span class="property">Environment</span> = <span class="string">"Production"</span>
-  }
-}
-
-<span class="keyword">resource</span> <span class="string">"aws_s3_bucket_public_access_block"</span> <span class="string">"static_website_bucket_public_access_block"</span> {
-  <span class="property">bucket</span> = <span class="string">aws_s3_bucket.static_website_bucket.id</span>
-
-  <span class="property">block_public_acls</span>       = <span class="string">false</span>
-  <span class="property">block_public_policy</span>     = <span class="string">false</span>
-  <span class="property">ignore_public_acls</span>      = <span class="string">false</span>
-  <span class="property">restrict_public_buckets</span> = <span class="string">false</span>
-}
-
-<span class="keyword">resource</span> <span class="string">"aws_s3_bucket_policy"</span> <span class="string">"static_website_bucket_policy"</span> {
-  <span class="property">bucket</span> = <span class="string">aws_s3_bucket.static_website_bucket.id</span>
-
-  <span class="property">policy</span> = <span class="keyword">jsonencode</span>({
-    <span class="string">"Version"</span>: <span class="string">"2012-10-17"</span>,
-    <span class="string">"Statement"</span>: [
-      {
-        <span class="string">"Sid"</span>: <span class="string">"PublicReadGetObject"</span>,
-        <span class="string">"Effect"</span>: <span class="string">"Allow"</span>,
-        <span class="string">"Principal"</span>: <span class="string">"*"</span>,
-        <span class="string">"Action"</span>: <span class="string">"s3:GetObject"</span>,
-        <span class="string">"Resource"</span>: [
-          <span class="string">"${aws_s3_bucket.static_website_bucket.arn}/*"</span>
-        ]
-      }
-    ]
-  })
-
-  <span class="property">depends_on</span> = [<span class="string">aws_s3_bucket_public_access_block.static_website_bucket_public_access_block</span>]
-}
-
-<span class="keyword">output</span> <span class="string">"website_endpoint"</span> {
-  <span class="property">value</span> = <span class="string">aws_s3_bucket.static_website_bucket.website_endpoint</span>
-}
-  </pre>
+  <footer>
+    <p>&copy; 2025 Blurple Anime Zone. All rights reserved.</p>
+  </footer>
 </body>
 </html>
