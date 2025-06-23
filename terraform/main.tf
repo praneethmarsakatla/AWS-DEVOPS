@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "static_website_bucket" {
-  bucket = "bucket-rugved-static" 
+  bucket = "bucket-praneeth-static" 
 
   website {
     index_document = "index.html"
