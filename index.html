@@ -1,61 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset=" {
-      width: 100%;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Anime Universe</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #f8f9fa, #e0eafc);
+      color: #333;
+    }
+
+    header {
+      background: url('https://cdn.pixabay.com/photo/2021/03/04/08/58/anime-6066636_1280.jpg') center/cover no-repeat;
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px #000;
+    }
+
+    nav {
+      background-color: #343a40;
+      padding: 10px;
+      text center;
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #f8f9fa;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffc107;
+    }
+
+    .section {
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .section h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: #343a40;
+    }
+
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .anime-card {
+      background: white;
       border-radius: 10px;
+      overflow: hidden;
+      width: 300px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .anime-card:hover {
+      transform: scale(1.05);
+    }
+
+    .anime-card img {
+      width: 100%;
+      height: auto;
+    }
+
+    .anime-card .info {
+      padding: 15px;
+    }
+
+    .anime-card .info h3 {
+      margin: 0 0 10px;
+      color: #ff6f61;
+    }
+
+    .anime-card .info p {
+      font-size: 0.95em;
+      color: #555;
     }
 
     footer {
-      background-color: #ff6f61;
+      background-color: #343a40;
       color: white;
       text-align: center;
-      padding: 10px;
-      position: relative;
-      bottom: 0;
-      width: 100%;
+      padding: 20px;
+      margin-top: 40px;
     }
 
-    .credits {
-      font-size: 0.9em;
-      margin-top: 10px;
-      color: #555;
-      text-align: center;
+    @media (max-width: 768px) {
+      .card-container {
+        flex-direction: column;
+        align-items: center;
+      }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Anime Characters Gallery</h1>
-    <p>Explore stunning anime character images from Pixabay</p>
+    <h1>Anime Universe</h1>
+    <p>Discover your favorite anime characters and stories</p>
   </header>
 
-  <div class="gallery">
-    <div class="anime-card">
-      <img src="https://cdn.pixabay.com/photo/2021/01/15/10/47/anime-5919017_1280.jpg" alt="Anime Character 1">
-      <h2>Heroic Warrior</h2>
-      <p>A brave anime character ready to fight for justice.</p>
-    </div>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Characters</a>
+    <a href="#">Series</a>
+    <a href="#">Contact</a>
+  </nav>
 
-    <div class="anime-card">
-      <img src="https://cdn.pixabay.com/photo/2020/12/10/12/36/anime-5819675_1280.jpg" alt="Anime Character 2">
-      <h2>Mystic Mage</h2>
-      <p>A mysterious mage with magical powers and a hidden past.</p>
-    </div>
-
-    <div class="anime-card">
-      <img src="https://cdn.pixabay.com/photo/2021/03/04/08/58/anime-6066636_1280.jpg" alt="Anime Character 3">
-      <h2>Cyber Ninja</h2>
-      <p>A futuristic ninja with cybernetic enhancements and stealth skills.</p>
-    </div>
-  </div>
-
-  <div class="credits">
-    <p>Images sourced from <a href="https://pixabay.com" target="_blank">Pixabay</a>. Free for personal and commercial use.</p>
-  </div>
-
-  <footer>
-    <p>&copy; 2025 Anime World. All rights reserved.</p>
-  </footer>
-</body>
-</html>
+  <div class="section">
+    <h2>Featured Characters</h2>
+    <div class="card-container">
+      <div class="anime-card">
