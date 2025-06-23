@@ -3,44 +3,43 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Anime Universe</title>
+  <title>Dark Anime World</title>
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to right, #f8f9fa, #e0eafc);
-      color: #333;
+      background-color: #121212;
+      color: #f0f0f0;
     }
 
     header {
-      background: url('https://cdn.pixabay.com/photo/2021/03/04/08/58/anime-6066636_1280.jpg') center/cover no-repeat;
+      background: linear-gradient(to right, #ff416c, #ff4b2b);
       color: white;
-      padding: 60px 20px;
+      padding: 40px 20px;
       text-align: center;
     }
 
     header h1 {
       font-size: 3em;
-      margin-bottom: 10px;
-      text-shadow: 2px 2px 4px #000;
+      margin: 0;
     }
 
     nav {
-      background-color: #343a40;
-      padding: 10px;
-      text center;
+      background-color: #1f1f1f;
+      padding: 15px;
+      text-align: center;
     }
 
     nav a {
-      margin: 0 15px;
-      text-decoration: none;
-      color: #f8f9fa;
+      margin: 0 20px;
+     ;
+      color: #ff6f61;
       font-weight: bold;
       transition: color 0.3s;
     }
 
     nav a:hover {
-      color: #ffc107;
+      color: #ffcc00;
     }
 
     .section {
@@ -51,7 +50,7 @@
     .section h2 {
       font-size: 2em;
       margin-bottom: 20px;
-      color: #343a40;
+      color: #ffcc00;
     }
 
     .card-container {
@@ -62,11 +61,11 @@
     }
 
     .anime-card {
-      background: white;
+      background: #1e1e1e;
       border-radius: 10px;
       overflow: hidden;
       width: 300px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
       transition: transform 0.3s;
     }
 
@@ -90,11 +89,46 @@
 
     .anime-card .info p {
       font-size: 0.95em;
-      color: #555;
+      color: #ccc;
+    }
+
+    .contact-form {
+      max-width: 500px;
+      margin: 0 auto;
+      background-color: #1e1e1e;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+      background-color: #2c2c2c;
+      color: #f0f0f0;
+    }
+
+    .contact-form button {
+      background-color: #ff6f61;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .contact-form button:hover {
+      background-color: #ffcc00;
+      color: #121212;
     }
 
     footer {
-      background-color: #343a40;
+      background-color: #1f1f1f;
       color: white;
       text-align: center;
       padding: 20px;
@@ -111,8 +145,8 @@
 </head>
 <body>
   <header>
-    <h1>Anime Universe</h1>
-    <p>Discover your favorite anime characters and stories</p>
+    <h1>Dark Anime World</h1>
+    <p>Explore the vibrant universe of anime characters and stories</p>
   </header>
 
   <nav>
@@ -126,3 +160,41 @@
     <h2>Featured Characters</h2>
     <div class="card-container">
       <div class="anime-card">
+        <img src="https://cdn.pixabay.com/photo/2021/01/15/10/47/anime-5919017_1280.jpg" alt="Character 1">
+        <div class="info">
+          <h3>Heroic Warrior</h3>
+          <p>A brave anime character ready to fight for justice and protect the innocent.</p>
+        </div>
+      </div>
+      <div class="anime-card">
+        <img src="https://cdn.pixabay.com/photo/2020/12/10/12/36/anime-5819675_1280.jpg" alt="Character 2">
+        <div class="info">
+          <h3>Mystic Mage</h3>
+          <p>A mysterious mage with magical powers and a hidden past full of secrets.</p>
+        </div>
+      </div>
+      <div class="anime-card">
+        <img src="https://cdn.pixabay.com/photo/2021/03/04/08/58/anime-6066636_1280.jpg" alt="Character 3">
+        <div class="info">
+          <h3>Cyber Ninja</h3>
+          <p>A futuristic ninja with cybernetic enhancements and stealth skills.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Contact Us</h2>
+    <form class="contact-form">
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Dark Anime World. All rights reserved.</p>
+  </footer>
+</body>
+</html>
