@@ -1,10 +1,16 @@
 version: 0.2
 
 phases:
-  install:
-    runtime-versions:
-      nodejs: 14
   build:
     commands:
-      - echo "Deploying to S3..."
-      - aws s3 sync website/ s3://my-static-site-bucket-unique123 --delete
+      - echo "Starting build..."
+      - echo "No build steps required for static HTML, directly zipping files."
+  post_build:
+    commands:
+      - echo "Build complete. Preparing artifacts for deployment."
+artifacts:
+  files:
+    - '**/*'             
+  base-directory: '.'    
+  discard-paths: yes     
+  name: website_artifact 
